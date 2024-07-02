@@ -1,0 +1,31 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="mt-8">
+            <H2 class="text-primary">Lista de Categoria</H2>
+        </div>
+        <div class="col-4 text-right">
+            <a aspaction="Create" class="btn btn-primary"><i class="fast fa-plus"></i>Crear nueva Categoria</a>
+        </div>
+    </div>
+
+    <br>
+    <br>
+    @* Creando la tabla categorias *@
+    <table id="tblCategorias" class="table table-striped tabled-bordered" style="wit"></table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Orden</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+</div>
+@* Necesito que hagas una carpeta llamada js en la carpeta wwwroot y dentro de ella crees un archivo llamado categoria.js con el siguiente contenido *@
+@section Scripts{
+    <script src="~/js/categoria.js"></script>
+}
