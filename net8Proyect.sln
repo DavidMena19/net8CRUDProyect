@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.35013.160
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "net8Proyect", "net8Proyect\net8Proyect.csproj", "{3E4236BE-C097-4CF7-AD5E-AE7C7CFA92C6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "net8Proyect", "net8Proyect\net8Proyect.csproj", "{3E4236BE-C097-4CF7-AD5E-AE7C7CFA92C6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlogCore.Data", "BlogCore.Datos\BlogCore.Data.csproj", "{F38CCF7F-2B62-4E55-97CF-9E79F1CC78D9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "net8Proyect.Data", "BlogCore.Datos\net8Proyect.Data.csproj", "{F38CCF7F-2B62-4E55-97CF-9E79F1CC78D9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlogCore.Models", "BlogCore.Models\BlogCore.Models.csproj", "{36D03CBF-5CE9-4B80-A846-8731767F5B8B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "net8Proyect.Models", "BlogCore.Models\net8Proyect.Models.csproj", "{36D03CBF-5CE9-4B80-A846-8731767F5B8B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlogCore.Utilities", "BlogCore.Utilities\BlogCore.Utilities.csproj", "{26FDB234-55AF-415E-8872-A22ACF5B421F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "net8Proyect.Utilities", "BlogCore.Utilities\net8Proyect.Utilities.csproj", "{26FDB234-55AF-415E-8872-A22ACF5B421F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

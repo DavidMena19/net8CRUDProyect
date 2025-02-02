@@ -15,7 +15,7 @@ namespace BlogCore.Models
         [Required(ErrorMessage ="Este campo es requerido")]
         [Display(Name="nombre categoria")]
 
-        public string nombre { get; set; }
+        public string Nombre { get; set; }
 
         [Display(Name ="Orden de visualizacion")]
         public int? Orden { get; set; }
