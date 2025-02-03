@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using net8Proyect.Data;
+using net8Proyect.Data.Data.Repository;
+using net8Proyect.Data.Data.Repository.IRepository;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,6 +20,9 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
 
+//agregar el contenedor de trabajo
+
+builder.Services.AddScoped<IContenedorTrabajo, ContenedorTrabajo>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

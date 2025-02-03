@@ -4,6 +4,10 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.10.35013.160
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "net8Proyect", "net8Proyect\net8Proyect.csproj", "{3E4236BE-C097-4CF7-AD5E-AE7C7CFA92C6}"
+	ProjectSection(ProjectDependencies) = postProject
+		{36D03CBF-5CE9-4B80-A846-8731767F5B8B} = {36D03CBF-5CE9-4B80-A846-8731767F5B8B}
+		{F38CCF7F-2B62-4E55-97CF-9E79F1CC78D9} = {F38CCF7F-2B62-4E55-97CF-9E79F1CC78D9}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "net8Proyect.Data", "BlogCore.Datos\net8Proyect.Data.csproj", "{F38CCF7F-2B62-4E55-97CF-9E79F1CC78D9}"
 EndProject

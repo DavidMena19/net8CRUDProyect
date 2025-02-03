@@ -1,4 +1,4 @@
-﻿using BlogCore.Models;
+﻿using net8Proyect.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Identity.Client;

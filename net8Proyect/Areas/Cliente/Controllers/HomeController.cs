@@ -8,7 +8,7 @@ namespace net8Proyect.Areas.Cliente.Controllers
     //que es el de cliente.
     [Area("Cliente")]
     public class HomeController : Controller
-    {
+    { 
         
         private readonly ILogger<HomeController> _logger;
 

@@ -1,5 +1,5 @@
 ﻿
-using BlogCore.Models;
+using net8Proyect.Models;
 using net8Proyect.Data.Data.Repository.IRepository;
 using System;
 using System.Collections.Generic;

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BlogCore.Models
+namespace net8Proyect.Models
 {
     public class Categoria
     {

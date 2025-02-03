@@ -25,6 +25,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BlogCore.Datos\BlogCore.Data.csproj" />
+    <ProjectReference Include="..\BlogCore.Datos\net8Proyect.Data.csproj" />
   </ItemGroup>
 
   <ItemGroup>
