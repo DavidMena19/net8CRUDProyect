@@ -11,7 +11,7 @@ namespace net8Proyect.Data.Data.Repository.IRepository
         //aqui van los repositorios
 
         ICategoriaRepository Categoria { get; }
-
+        IArticuloRepository Articulo { get; }
         void save();
     }
 }

@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc.Rendering;
+
 
 namespace net8Proyect.Data.Data.Repository
 {
@@ -16,14 +18,25 @@ namespace net8Proyect.Data.Data.Repository
         {
             _context = contex;
         }
+
+        public IEnumerable<SelectListItem> GetListaCategorias()
+        {
+            return _context.Categoria.Select(i => new SelectListItem()
+            {
+                Text = i.Nombre,
+                Value = i.Id.ToString()
+            });
+        }
+
         public void Update(Categoria categoria)
         {
             var objDesdeDb = _context.Categoria.FirstOrDefault(s => s.Id == categoria.Id);
             objDesdeDb.Nombre = categoria.Nombre;
             objDesdeDb.Orden = categoria.Orden;
-
+            
             _context.SaveChanges();
 
         }
+
     }
 }

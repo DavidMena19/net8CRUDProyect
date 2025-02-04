@@ -36,14 +36,16 @@
                             <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
                             <div class="dropdown-menu">
 
-                                <a asp-action="Index" asp-controller="Categoria" asp-area="Admin" style="text-decoration: none;">Categorias</a>
-                                <a asp-action="Index" asp-controller="Articulo" asp-area="Admin" style="text-decoration: none;">Articulos</a>
-                                <a asp-action="Index" asp-controller="#" asp-area="#" style="text-decoration: none;">Slider</a>
-                                <a asp-action="#" asp-controller="#" asp-area="Admin" style="text-decoration: none;">Usuarios</a>
+                                <a asp-action="Index" class="dropdown-item" asp-controller="Categoria" asp-area="Admin" style="text-decoration: none;">Categorias</a>
+                                <a asp-action="Index" class="dropdown-item" asp-controller="Articulo" asp-area="Admin" style="text-decoration: none;">Articulos</a>
+                                <a asp-action="Index" class="dropdown-item" asp-controller="#" asp-area="#" style="text-decoration: none;">Slider</a>
+                                <a asp-action="#"     class="dropdown-item" asp-controller="#" asp-area="Admin" style="text-decoration: none;">Usuarios</a>
                                
                         </li>
                     </ul>
-                    @* aqui esta el buscador *@
+
+                    @* aqui esta el buscador *@'
+                    
                     @* <form class="d-flex">
                         <input class="form-control me-sm-2" type="search" placeholder="Escribe lo que quieres buscar">
                         <button class="btn btn-secondary my-2 my-sm-0" type="submit">Buscar</button>

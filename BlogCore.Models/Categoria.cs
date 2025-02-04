@@ -18,6 +18,7 @@ namespace net8Proyect.Models
         public string Nombre { get; set; }
 
         [Display(Name ="Orden de visualizacion")]
+        [Range(1,100, ErrorMessage = "El orden debe estar entre 1 y 100")]
         public int? Orden { get; set; }
 
         //luego de crear los modelos hay que agregarlos en el APPLICATION DBCONTEXT porque es la que se encarga de crear las migraciones

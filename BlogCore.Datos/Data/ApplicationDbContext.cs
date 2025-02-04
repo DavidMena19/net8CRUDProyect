@@ -17,5 +17,7 @@ namespace net8Proyect.Data
 
         //aqui van todos los modelos
         public DbSet<Categoria> Categoria { get; set; }
+        public DbSet<Articulo> Articulo { get; set; }
+        public DbSet<Slider> Slider { get; set; }
     }
 }

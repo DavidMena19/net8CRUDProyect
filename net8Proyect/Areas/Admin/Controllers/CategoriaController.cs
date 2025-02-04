@@ -32,6 +32,8 @@ namespace net8Proyect.Areas.Admin.Controllers
 
         }
         #endregion
+
+
         #region logica
         [HttpPost]
         [ValidateAntiForgeryToken]

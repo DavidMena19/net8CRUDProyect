@@ -2,6 +2,7 @@
 using net8Proyect.Data.Data.Repository.IRepository;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,16 +17,18 @@ namespace net8Proyect.Data.Data.Repository
         {
             _context = context;
             Categoria = new CategoriaRepository(_context);
-            //Articulo = new ArticuloRepository(_context);
+            Articulo = new ArticuloRepository(_context);
         }
 
         public ICategoriaRepository Categoria {  get; private set; }
+        public IArticuloRepository Articulo { get; private set; }
 
         public void Dispose()
         {
             _context.Dispose();
         }
 
+       
         public void save()
         {
             _context.SaveChanges();
