@@ -11,10 +11,16 @@ namespace net8Proyect.Models
     {
         [Key]
         public int id {  get; set; }
-        
+        [Required(ErrorMessage = "Este campo es requerido")]
+        [Display(Name = "Nombre Slider")]
         public string Nombre {  get; set; }
 
+        [Required(ErrorMessage = "Este campo es requerido")]
+        [Display(Name = "Estado Slider")]
         public bool Estado {  get; set; }
-        public string UrlImagen {  get; set; }
+
+        [DataType(DataType.ImageUrl)]
+        [Display(Name = "Imagen")]
+        public string? UrlImagen {  get; set; }
     }
 }

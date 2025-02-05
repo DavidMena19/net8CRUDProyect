@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using net8Proyect.Data.Data.Repository.IRepository;
 using net8Proyect.Models;
 using System.Diagnostics;
 
@@ -8,13 +9,12 @@ namespace net8Proyect.Areas.Cliente.Controllers
     //que es el de cliente.
     [Area("Cliente")]
     public class HomeController : Controller
-    { 
+    {
+        private readonly IContenedorTrabajo _contenedorTrabajo;
         
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(IContenedorTrabajo contenedorTrabajo)
         {
-            _logger = logger;
+           _contenedorTrabajo = contenedorTrabajo;
         }
 
         public IActionResult Index()
