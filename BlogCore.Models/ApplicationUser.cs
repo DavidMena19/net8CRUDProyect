@@ -13,16 +13,16 @@ namespace net8Proyect.Models
     {
 
         [Required(ErrorMessage = "Este campo es obligatorio")]
-        public int Nombre { get; set; }
+        public string Nombre { get; set; }
 
         [Required(ErrorMessage = "Este campo es obligatorio")]
-        public int Direccion { get; set; }
+        public string Direccion { get; set; }
 
         [Required(ErrorMessage = "Este campo es obligatorio")]
-        public int Ciudad { get; set; }
+        public string Ciudad { get; set; }
 
         [Required(ErrorMessage = "Este campo es obligatorio")]
-        public int Pais { get; set; }
+        public string Pais { get; set; }
         
 
     }
