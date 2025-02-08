@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - net8Proyect</title>
+    <title>@ViewData["Title"] - WebStore-MODEL</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap5.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/net8Proyect.styles.css" asp-append-version="true" />
@@ -15,10 +15,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 </head>
 <body>
-    <header>
+
+    <header class="header">
         <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">net8Proyect</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">WebStore-MODEL</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -30,7 +31,8 @@
                                 <span class="visually-hidden">(current)</span>
                             </a>
                         </li> 
-                        @* aqui el dropdown (no tiene opciones aun)                  *@
+
+                       
 
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
@@ -44,18 +46,28 @@
                         </li>
                     </ul>
 
-                    @* aqui esta el buscador *@'
+                    @* buscador *@'
                     
-                    @* <form class="d-flex">
+                    <form class="d-flex">
                         <input class="form-control me-sm-2" type="search" placeholder="Escribe lo que quieres buscar">
                         <button class="btn btn-secondary my-2 my-sm-0" type="submit">Buscar</button>
-                    </form> *@
+                    </form>
+
                     @* me falta cambiarle el color a esto *@
                     <partial name="_LoginPartial" />
                 </div>
             </div>
         </nav>
     </header>
+
+    <!--Slider-->
+    @if( ViewBag.IsHome == true)
+    {
+        <partial name="_Slider" />
+    }
+   
+    <!--Slider-->
+
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()

@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using net8Proyect.Data.Data.Repository.IRepository;
 using net8Proyect.Models;
+using net8Proyect.Models.ViewModels;
 using System.Diagnostics;
 
 namespace net8Proyect.Areas.Cliente.Controllers
@@ -19,7 +20,19 @@ namespace net8Proyect.Areas.Cliente.Controllers
 
         public IActionResult Index()
         {
-            return View();
+
+            HomeVM homeVM = new HomeVM()
+            {
+                Sliders = _contenedorTrabajo.Slider.GetAll(),
+                ListaArticulos = _contenedorTrabajo.Articulo.GetAll()
+            };
+            
+            //dejandele saber a la aplicacion que este index es la pagina principal, 
+            //es como crear una variable, de este modo puedo hacer una validacion para que el slider solo aparezca
+            // en el IsHome, no en otras paginas
+             
+            ViewBag.IsHome = true;
+            return View(homeVM);
         }
 
         public IActionResult Privacy()
