@@ -13,6 +13,8 @@ namespace net8Proyect.Data.Data.Repository.IRepository
         ICategoriaRepository Categoria { get; }
         IArticuloRepository Articulo { get; }
         ISliderRepository Slider { get; }
+
+        IUsuarioRepository Usuario { get; }
         void save();
     }
 }

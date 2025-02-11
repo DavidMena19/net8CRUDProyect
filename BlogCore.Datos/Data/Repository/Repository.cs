@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace net8Proyect.Data.Data.Repository
 {
-    internal class Repository<T> : IRepository<T> where T : class
+    public class Repository<T> : IRepository<T> where T : class
     {
 
         protected readonly DbContext Context;
-        internal DbSet<T> dbSet;
+        public DbSet<T> dbSet;
 
         public Repository(DbContext context)
         {

@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace net8Proyect.Data.Data.Repository
 {
-    internal class CategoriaRepository : Repository<Categoria>, ICategoriaRepository
+    public class CategoriaRepository : Repository<Categoria>, ICategoriaRepository
     {
         private readonly ApplicationDbContext _context;
         public CategoriaRepository(ApplicationDbContext contex): base(contex)

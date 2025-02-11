@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace net8Proyect.Data.Data.Repository
 {
-    internal class SliderRepository : Repository<Slider>, ISliderRepository
+    public class SliderRepository : Repository<Slider>, ISliderRepository
     {
         private readonly ApplicationDbContext _context;
         public SliderRepository(ApplicationDbContext contex): base(contex)

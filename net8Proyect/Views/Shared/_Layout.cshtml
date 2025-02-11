@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using net8Proyect.Utilities
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -32,18 +34,17 @@
                             </a>
                         </li> 
 
-                       
-
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-                            <div class="dropdown-menu">
-
-                                <a asp-action="Index" class="dropdown-item" asp-controller="Categoria" asp-area="Admin" style="text-decoration: none;">Categorias</a>
-                                <a asp-action="Index" class="dropdown-item" asp-controller="Articulo" asp-area="Admin" style="text-decoration: none;">Articulos</a>
-                                <a asp-action="Index" class="dropdown-item" asp-controller="Slider" asp-area="Admin" style="text-decoration: none;">Slider</a>
-                                <a asp-action="#"     class="dropdown-item" asp-controller="#" asp-area="Admin" style="text-decoration: none;">Usuarios</a>
-                               
-                        </li>
+                        @if (User.IsInRole(CNT.Administrador))
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                                <div class="dropdown-menu">
+                                    <a asp-action="Index" class="dropdown-item" asp-controller="Categoria" asp-area="Admin" style="text-decoration: none;">Categorias</a>
+                                    <a asp-action="Index" class="dropdown-item" asp-controller="Articulo" asp-area="Admin" style="text-decoration: none;">Articulos</a>
+                                    <a asp-action="Index" class="dropdown-item" asp-controller="Slider" asp-area="Admin" style="text-decoration: none;">Slider</a>
+                                    <a asp-action="Index" class="dropdown-item" asp-controller="Usuario" asp-area="Admin" style="text-decoration: none;">Admin-Usuarios</a>
+                            </li>                                          
+                        }
                     </ul>
 
                     @* buscador *@'

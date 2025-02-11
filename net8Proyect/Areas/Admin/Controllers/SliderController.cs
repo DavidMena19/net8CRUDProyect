@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using net8Proyect.Data.Data.Repository;
 using net8Proyect.Data.Data.Repository.IRepository;
 using net8Proyect.Models;
@@ -6,6 +7,7 @@ using net8Proyect.Models.ViewModels;
 
 namespace net8Proyect.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "Admin")]
     [Area("Admin")]
     public class SliderController : Controller
     {

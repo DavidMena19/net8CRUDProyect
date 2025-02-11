@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Primitives;
 using net8Proyect.Data;
 using net8Proyect.Data.Data.Repository.IRepository;
@@ -7,6 +8,7 @@ using net8Proyect.Models.ViewModels;
 
 namespace net8Proyect.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "Admin")]
     [Area("Admin")]
 
     public class ArticuloController : Controller

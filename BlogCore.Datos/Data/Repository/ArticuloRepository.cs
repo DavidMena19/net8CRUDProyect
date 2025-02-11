@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace net8Proyect.Data.Data.Repository
 {
-    internal class ArticuloRepository : Repository<Articulo>, IArticuloRepository
+    public class ArticuloRepository : Repository<Articulo>, IArticuloRepository
     {
         private readonly ApplicationDbContext _context;
         public ArticuloRepository(ApplicationDbContext contex): base(contex)

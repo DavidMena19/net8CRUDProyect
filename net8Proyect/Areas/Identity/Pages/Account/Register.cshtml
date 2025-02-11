@@ -1,11 +1,12 @@
 ﻿@page
+@using net8Proyect.Utilities
 @model RegisterModel
 @{
     ViewData["Title"] = "Registro de usuarios";
 }
 
 <div class="row">
-    <div class="col-md-6 offset-3">
+    <div class="col-md-8 offset-2">
         <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
             <h2>Crear nueva cuenta.</h2>
             <hr />
@@ -50,7 +51,22 @@
                 <label asp-for="Input.ConfirmPassword">Confirm Password</label>
                 <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
             </div>
-            <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Registro</button>
+
+            <!--Selector de roles-->
+
+            @if (User.IsInRole(CNT.Administrador))
+            {
+                <div class="form-group row">
+                    <div class="col-6"><h4>Seleccionar Rol del usuario</h4></div>
+                    <div class="col-5">
+                        <input type="radio" name="radUsuarioRol" value="@CNT.Administrador" /> @CNT.Administrador
+                        <input type="radio" name="radUsuarioRol" value="@CNT.Registrado" /> @CNT.Registrado
+                    </div>
+                </div>
+            }
+            
+
+            <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary"><i class="fa-solid fa-check"></i></button>
         </form>
     </div>
     <div class="col-md-6 col-md-offset-2">
