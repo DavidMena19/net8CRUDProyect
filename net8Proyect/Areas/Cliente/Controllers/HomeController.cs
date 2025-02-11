@@ -35,6 +35,12 @@ namespace net8Proyect.Areas.Cliente.Controllers
             return View(homeVM);
         }
 
+        public IActionResult Detalle(int id)
+        {
+            var articuloDesdeBd = _contenedorTrabajo.Articulo.Get(id);
+            return View(articuloDesdeBd);
+        }
+
         public IActionResult Privacy()
         {
             return View();

@@ -28,3 +28,29 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+::placeholder{
+    color:black !important;
+}
+p{
+    color:#1f1f1f;
+}
+
+.searchbtn1{
+
+    background-color: #f7f7f7;
+}
+.searchbtn1:hover {
+    background-color: #bebebe;
+}
+.searchbtn {
+    border: solid 2px black;
+    border-radius: 5px;
+    color:white !important;
+}
+.searchbtn:hover {
+    border: solid 2px black;
+    border-radius: 5px;
+    color: white !important;
+    background-color:#0e0e0e;
+}

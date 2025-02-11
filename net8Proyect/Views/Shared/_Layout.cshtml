@@ -49,12 +49,12 @@
 
                     @* buscador *@'
                     
-                    <form class="d-flex">
-                        <input class="form-control me-sm-2" type="search" placeholder="Escribe lo que quieres buscar">
-                        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Buscar</button>
+                    <form class="d-flex" asp-controller="Home" asp-action="ResultadoBusqueda" method="get">
+                        <button class="btn btn-secondary my-2 my-sm-0 searchbtn1" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                        <input class="form-control me-sm-2 d-flex text-dark" type="text" name="searchString" placeholder="Buscar">
+                        
                     </form>
 
-                    @* me falta cambiarle el color a esto *@
                     <partial name="_LoginPartial" />
                 </div>
             </div>

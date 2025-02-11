@@ -1,0 +1,32 @@
+﻿@model net8Proyect.Models.Articulo
+
+@{
+    ViewData["Title"] = "Detalle del articulo";
+}
+
+<div class="container">
+    <div class="card">
+        <div class="card-header bg-light text-light">
+            <div class="col-12 ">
+                <h1 class="text-primary text-center">@Model.Nombre</h1>
+            </div>
+            <div class="col-12">
+                <p class="text-muted">@Model.FechaCreacion</p>
+            </div>
+            <div class="card-body">
+            <div class="col-120">
+                <img src="@Model.UrlImagen" class="img-thumbnail mx-auto d-block" style="width:383px" height="226px"/>
+                <p class="text-dark" style="color:black">@Html.Raw(Model.Descripcion)</p>
+                </div>
+                <div class="card-footer">
+                    <div class="row">
+                        <div class="col-12 col-md-6 pb-1">
+                            <a asp-action="Index" class="btn btn-success btn-sm" style="width:200px;"><i class="fa-solid fa-backward"></i></a>
+                            <a asp-action="shop" class="btn btn-primary" style="width:200px;" asp-route-id="@Model.Id"><i class="fa-solid fa-cart-shopping"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

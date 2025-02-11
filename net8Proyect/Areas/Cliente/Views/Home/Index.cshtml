@@ -17,14 +17,14 @@
     <div class="row">
         @foreach(var articulo in Model.ListaArticulos.OrderBy(i => i.Id))
         {
-            <div class="col-4">
+            <div class="col-sm-4">
                 <div class="card">
                     <img src="@articulo.UrlImagen" class="img-thumbnail" width="100%"/>
                     <div class="card-body">
                         <h5 class="text-center">@articulo.Nombre</h5>
-                        <a asp-action="Detalle" class="btn btn-success" style="" asp-route-id="@articulo.Id">
-                            Detalles
-                        </a>
+
+                        <a asp-action="Detalle" class="btn btn-success" style="" asp-route-id="@articulo.Id"><i class="fa-solid fa-circle-info"></i></a>
+                        <a asp-action="shop" class="btn btn-primary" style="" asp-route-id="@articulo.Id"><i class="fa-solid fa-cart-shopping"></i></a>
                     </div>
                 </div>
             </div>
