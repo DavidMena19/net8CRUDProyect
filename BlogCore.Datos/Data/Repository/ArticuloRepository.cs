@@ -16,6 +16,12 @@ namespace net8Proyect.Data.Data.Repository
         {
             _context = contex;
         }
+
+        public IQueryable<Articulo> AsQueryable()
+        {
+            return _context.Set<Articulo>().AsQueryable();
+        }
+
         public void Update(Articulo articulo)
         {
             var objDesdeDb = _context.Articulo.FirstOrDefault(s => s.Id == articulo.Id);

@@ -12,10 +12,10 @@ namespace net8Proyect.Areas.Cliente.Controllers
     public class HomeController : Controller
     {
         private readonly IContenedorTrabajo _contenedorTrabajo;
-        
+
         public HomeController(IContenedorTrabajo contenedorTrabajo)
         {
-           _contenedorTrabajo = contenedorTrabajo;
+            _contenedorTrabajo = contenedorTrabajo;
         }
 
         public IActionResult Index()
@@ -26,11 +26,11 @@ namespace net8Proyect.Areas.Cliente.Controllers
                 Sliders = _contenedorTrabajo.Slider.GetAll(),
                 ListaArticulos = _contenedorTrabajo.Articulo.GetAll()
             };
-            
+
             //dejandele saber a la aplicacion que este index es la pagina principal, 
             //es como crear una variable, de este modo puedo hacer una validacion para que el slider solo aparezca
             // en el IsHome, no en otras paginas
-             
+
             ViewBag.IsHome = true;
             return View(homeVM);
         }
@@ -46,7 +46,23 @@ namespace net8Proyect.Areas.Cliente.Controllers
             return View();
         }
 
-        
+        //Metodo para el buscador
+
+        public IActionResult ResultadoBusqueda(string searchString, int page = 1, int pageSize = 6)
+        {
+            var articulos = _contenedorTrabajo.Articulo.AsQueryable();
+
+            //filtrar por titulo
+            if (!string.IsNullOrEmpty(searchString)) {
+                articulos = articulos.Where(e => e.Nombre.Contains(searchString));
+            }
+
+            //paginar los resultados
+            var paginatedEntries = articulos.Skip((page - 1) * pageSize).Take(pageSize);
+
+            var model = new ListaPaginada<Articulo>(paginatedEntries.ToList(), articulos.Count(), page, pageSize, searchString);
+                return View(model);
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

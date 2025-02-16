@@ -22,9 +22,10 @@
                     <img src="@articulo.UrlImagen" class="img-thumbnail" width="100%"/>
                     <div class="card-body">
                         <h5 class="text-center">@articulo.Nombre</h5>
+                        <p class="text-center">Precio $DOP @articulo.Precio</p>
 
                         <a asp-action="Detalle" class="btn btn-success" style="" asp-route-id="@articulo.Id"><i class="fa-solid fa-circle-info"></i></a>
-                        <a asp-action="shop" class="btn btn-primary" style="" asp-route-id="@articulo.Id"><i class="fa-solid fa-cart-shopping"></i></a>
+                        <a asp-action="Carrito" asp-controller="ArticuloCliente" class="btn btn-primary" style="" asp-route-id="@articulo.Id"><i class="fa-solid fa-cart-shopping"></i></a>
                     </div>
                 </div>
             </div>

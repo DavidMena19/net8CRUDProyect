@@ -34,6 +34,9 @@ namespace net8Proyect.Models
         [ForeignKey("CategoriaId")]
         public Categoria? Categoria { get; set; }
 
+        [Required(ErrorMessage = "El precio es obligatorio")]
+        public Decimal Precio { get; set; }
+
 
     }
 }

@@ -36,6 +36,18 @@
             </div>
 
             <br />
+
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Articulo.Precio"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Articulo.Precio" class="form-control"></input>
+                    <span asp-validation-for="Articulo.Precio" class="text-danger"></span>
+                </div>
+            </div>
+
+            <br />
             <div class="form-group row">
                 <div class="col-4">
                     <label for="Categoria">Categoria</label>

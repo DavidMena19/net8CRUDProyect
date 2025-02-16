@@ -14,10 +14,16 @@ function cargarDatatable() {
             { "data": "id", "width": "5%" },
             { "data": "nombre", "width": "20%" },
             { "data": "Categoria.Nombre", "width": "15%" },
-            { "data": "fechaCreacion", "width": "30%" },
+            { "data": "fechaCreacion", "width": "20%" },
             {
-            },       
-            {"data": "id",
+                "data": "precio",
+                "render": function (data) {
+                    return `RD$ ${data.toFixed(2)}`; // Formato de precio
+                },
+                "width": "15%"
+            },
+            {
+                "data": "id",
                 "render": function (data) {
                     return `<div class="text-center">
                                 <a href="/Admin/Articulo/Edit/${data}" class="btn btn-success text-white" style="cursor:pointer; width:140px;">
@@ -27,9 +33,9 @@ function cargarDatatable() {
                                 <a onclick=Delete("/Admin/Articulo/Delete/${data}") class="btn btn-danger text-white" style="cursor:pointer; width:140px;">
                                 <i class="far fa-trash-alt"></i> Borrar
                                 </a>
-                          </div>
-                         `;
-                }, "width": "30%"
+                          </div>`;
+                },
+                "width": "25%"
             }
         ],
         "language": {
@@ -58,13 +64,13 @@ function cargarDatatable() {
 
 function Delete(url) {
     swal({
-        title: "Esta seguro de borrar?",
-        text: "Este contenido no se puede recuperar!",
+        title: "¿Está seguro de borrar?",
+        text: "¡Este contenido no se puede recuperar!",
         type: "warning",
         showCancelButton: true,
         confirmButtonColor: "#DD6B55",
-        confirmButtonText: "Si, borrar!",
-        closeOnconfirm: true
+        confirmButtonText: "Sí, borrar!",
+        closeOnConfirm: true
     }, function () {
         $.ajax({
             type: 'DELETE',

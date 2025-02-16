@@ -21,6 +21,7 @@ namespace net8Proyect.Data
         public DbSet<Articulo> Articulo { get; set; }
         public DbSet<Slider> Slider { get; set; }
         public DbSet<ApplicationUser> ApplicationUser { get; set; }
-        
+        public DbSet<Carrito> Carrito { get; set; }
+        public DbSet<CarritoDetalle> CarritoDetalle { get; set; }
     }
 }

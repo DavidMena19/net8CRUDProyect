@@ -157,8 +157,15 @@ namespace net8Proyect.Areas.Admin.Controllers
             return View(artiVM);
         }
 
+        //[HttpGet]
+        //public IActionResult Carrito(int id) {
+        
+        //}
+
         #endregion
+
         #region Llamadas a la API
+        //To Do: no se carga el precio ni la categoria en el datatable
         [HttpGet]
         public IActionResult GetAll()
         {

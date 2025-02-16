@@ -7,11 +7,8 @@ using System.Threading.Tasks;
 
 namespace net8Proyect.Data.Data.Repository.IRepository
 {
-    public interface IArticuloRepository : IRepository<Articulo>
+    public interface ICarritoRepository : IRepository<Carrito>
     {
-        void Update(Articulo articulo);
-
-        //metodo para el buscador
-        IQueryable<Articulo> AsQueryable();
+        void Update(Carrito carrito);
     }
 }
