@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using net8Proyect.Data;
 
@@ -11,9 +12,11 @@ using net8Proyect.Data;
 namespace net8Proyect.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250218160306_carritoDetalleIDString")]
+    partial class carritoDetalleIDString
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -261,7 +264,7 @@ namespace net8Proyect.Data.Migrations
 
                     b.HasIndex("CategoriaId");
 
-                    b.ToTable("Articulo", (string)null);
+                    b.ToTable("Articulo");
                 });
 
             modelBuilder.Entity("net8Proyect.Models.Carrito", b =>
@@ -283,7 +286,7 @@ namespace net8Proyect.Data.Migrations
 
                     b.HasIndex("ArticuloId");
 
-                    b.ToTable("Carrito", (string)null);
+                    b.ToTable("Carrito");
                 });
 
             modelBuilder.Entity("net8Proyect.Models.CarritoDetalle", b =>
@@ -325,7 +328,7 @@ namespace net8Proyect.Data.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("CarritoDetalle", (string)null);
+                    b.ToTable("CarritoDetalle");
                 });
 
             modelBuilder.Entity("net8Proyect.Models.Categoria", b =>
@@ -345,7 +348,7 @@ namespace net8Proyect.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Categoria", (string)null);
+                    b.ToTable("Categoria");
                 });
 
             modelBuilder.Entity("net8Proyect.Models.Slider", b =>
@@ -368,7 +371,7 @@ namespace net8Proyect.Data.Migrations
 
                     b.HasKey("id");
 
-                    b.ToTable("Slider", (string)null);
+                    b.ToTable("Slider");
                 });
 
             modelBuilder.Entity("net8Proyect.Models.ApplicationUser", b =>

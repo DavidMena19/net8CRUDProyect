@@ -12,11 +12,12 @@
 </div>
 
 @if(Model.ListaArticulos.Count() > 0)
-{
+{ 
     <hr />
-    <div class="row">
+    <div class="row" id="tblcarrito">
         @foreach(var articulo in Model.ListaArticulos.OrderBy(i => i.Id))
         {
+            
             <div class="col-sm-4">
                 <div class="card">
                     <img src="@articulo.UrlImagen" class="img-thumbnail" width="100%"/>
@@ -25,15 +26,21 @@
                         <p class="text-center">Precio $DOP @articulo.Precio</p>
 
                         <a asp-action="Detalle" class="btn btn-success" style="" asp-route-id="@articulo.Id"><i class="fa-solid fa-circle-info"></i></a>
-                        <a asp-action="Carrito" asp-controller="ArticuloCliente" class="btn btn-primary" style="" asp-route-id="@articulo.Id"><i class="fa-solid fa-cart-shopping"></i></a>
+                        <a href="javascript:void(0);" onclick="agregarAlCarrito(@articulo.Id)" class="btn btn-primary" style=""><i class="fa-solid fa-cart-shopping"></i></a>
+
+                        @* <a asp-action="AgregarAlCarrito" asp-controller="ArticuloCliente" class="btn btn-primary" style="" asp-route-articuloId="@articulo.Id"><i class="fa-solid fa-cart-shopping"></i></a> *@
                     </div>
                 </div>
             </div>
 
         }
     </div>
-}
-else
+}else
 {
     <p>No hay articulos disponibles por el momento</p>
+}
+
+@section Scripts {
+    <script src="~/js/carrito.js"></script>
+
 }

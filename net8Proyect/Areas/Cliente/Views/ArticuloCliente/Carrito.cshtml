@@ -1,0 +1,50 @@
+﻿@model net8Proyect.Models.Carrito
+
+
+@{
+    ViewData["Title"] = "Carrito de compras";
+}
+
+div class="row mt-1">
+<div class="col-sm-12">
+    <h1 class="text-center text-dark bg-secondary py-1">Carrito de compras</h1>
+</div>
+</div>
+
+@if(Model.Detalles.Count() > 0)
+{
+    <br />
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Producto</th>
+                <th>Precio Unitario</th>
+                <th>Cantidad</th>
+                <th>Subtotal</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Detalles)
+            {
+                <tr>
+                    <td>@item.Articulo.Nombre</td>
+                    <td>@item.PrecioUnitario.ToString("C")</td>
+                    <td>
+                        <input type="number" value="@item.Cantidad" min="1" onchange="actualizarCantidad(@item.Id, this.value)" />
+                    </td>
+                    <td>@item.Subtotal.ToString("C")</td>
+                    <td>
+                        <button onclick="eliminarArticulo(@item.Id)" class="btn btn-danger">Eliminar</button>
+                    </td>
+                </tr>
+            }else{
+                <p>No hoy articulos seleccionados </p>
+            }
+            }
+        </tbody>
+    </table>
+    <h3>Total: @Model.Total.ToString("C")</h3>
+    <button class="btn btn-primary">Proceder al Pago</button>
+}

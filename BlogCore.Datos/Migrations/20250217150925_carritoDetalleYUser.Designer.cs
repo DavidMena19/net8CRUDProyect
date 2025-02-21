@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using net8Proyect.Data;
 
@@ -11,9 +12,11 @@ using net8Proyect.Data;
 namespace net8Proyect.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250217150925_carritoDetalleYUser")]
+    partial class carritoDetalleYUser
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -261,7 +264,7 @@ namespace net8Proyect.Data.Migrations
 
                     b.HasIndex("CategoriaId");
 
-                    b.ToTable("Articulo", (string)null);
+                    b.ToTable("Articulo");
                 });
 
             modelBuilder.Entity("net8Proyect.Models.Carrito", b =>
@@ -272,18 +275,12 @@ namespace net8Proyect.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int?>("ArticuloId")
+                    b.Property<int>("ClienteId")
                         .HasColumnType("int");
-
-                    b.Property<string>("ClienteId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ArticuloId");
-
-                    b.ToTable("Carrito", (string)null);
+                    b.ToTable("Carrito");
                 });
 
             modelBuilder.Entity("net8Proyect.Models.CarritoDetalle", b =>
@@ -313,9 +310,8 @@ namespace net8Proyect.Data.Migrations
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("UsuarioId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("UsuarioId")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -325,7 +321,7 @@ namespace net8Proyect.Data.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("CarritoDetalle", (string)null);
+                    b.ToTable("CarritoDetalle");
                 });
 
             modelBuilder.Entity("net8Proyect.Models.Categoria", b =>
@@ -345,7 +341,7 @@ namespace net8Proyect.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Categoria", (string)null);
+                    b.ToTable("Categoria");
                 });
 
             modelBuilder.Entity("net8Proyect.Models.Slider", b =>
@@ -368,7 +364,7 @@ namespace net8Proyect.Data.Migrations
 
                     b.HasKey("id");
 
-                    b.ToTable("Slider", (string)null);
+                    b.ToTable("Slider");
                 });
 
             modelBuilder.Entity("net8Proyect.Models.ApplicationUser", b =>
@@ -456,13 +452,6 @@ namespace net8Proyect.Data.Migrations
                     b.Navigation("Categoria");
                 });
 
-            modelBuilder.Entity("net8Proyect.Models.Carrito", b =>
-                {
-                    b.HasOne("net8Proyect.Models.Articulo", null)
-                        .WithMany("Carrito")
-                        .HasForeignKey("ArticuloId");
-                });
-
             modelBuilder.Entity("net8Proyect.Models.CarritoDetalle", b =>
                 {
                     b.HasOne("net8Proyect.Models.Articulo", "Articulo")
@@ -482,11 +471,6 @@ namespace net8Proyect.Data.Migrations
                     b.Navigation("Articulo");
 
                     b.Navigation("User");
-                });
-
-            modelBuilder.Entity("net8Proyect.Models.Articulo", b =>
-                {
-                    b.Navigation("Carrito");
                 });
 
             modelBuilder.Entity("net8Proyect.Models.Carrito", b =>

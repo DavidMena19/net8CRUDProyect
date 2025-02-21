@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace net8Proyect.Data.Data.Repository.IRepository
 {
-    public interface ICarritoRepository : IRepository<Carrito>
+    public interface ICarritoDetalleRepository : IRepository<CarritoDetalle>
     {
-        void Update(Carrito carrito);
-        //void ObtenerCarritoActual(Carrito carrito);
+        //void Update(CarritoDetalle carritoDetalle);
     }
 }

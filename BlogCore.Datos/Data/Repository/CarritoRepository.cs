@@ -18,6 +18,12 @@ namespace net8Proyect.Data.Data.Repository
         }
 
 
+        //public void ObtenerCarritoActual(Carrito carrito)
+        //{
+        //    var objDesdeBd = _context.Carrito.FirstOrDefault(u=>u.Id == carrito.Id);
+
+        //}
+
         public void Update(Carrito carrito)
         {
             var objDesdeDb = _context.Carrito.FirstOrDefault(s => s.Id == carrito.Id);
