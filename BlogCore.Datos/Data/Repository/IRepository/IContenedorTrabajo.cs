@@ -15,6 +15,7 @@ namespace net8Proyect.Data.Data.Repository.IRepository
         ISliderRepository Slider { get; }
         IUsuarioRepository Usuario { get; }
         ICarritoRepository Carrito { get; }
+        ICarritoDetalleRepository CarritoDetalle { get; }
         void save();
     }
 }

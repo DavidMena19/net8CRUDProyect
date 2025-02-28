@@ -10,6 +10,7 @@ namespace net8Proyect.Data.Data.Repository.IRepository
     public interface ICarritoRepository : IRepository<Carrito>
     {
         void Update(Carrito carrito);
+        int Count(string usuarioId);
         //void ObtenerCarritoActual(Carrito carrito);
     }
 }

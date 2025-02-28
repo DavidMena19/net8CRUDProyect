@@ -18,16 +18,15 @@ namespace net8Proyect.Data.Data.Repository
         }
 
 
-        //public void Update(CarritoDetalle factura)
-        //{
-        //    var objDesdeDb = _context.CarritoDetalle.FirstOrDefault(s => s.Id == factura.Id);
-           
-        //    objDesdeDb.PrecioUnitario = factura.PrecioUnitario;
-        //    objDesdeDb.Cantidad = factura.Cantidad;
+        public void Update(CarritoDetalle detalle)
+        {
+            var objDesdeDb = _context.CarritoDetalle.FirstOrDefault(s => s.Id == detalle.Id);
 
-           
-        //    //_context.SaveChanges();
+            objDesdeDb.PrecioUnitario = detalle.PrecioUnitario;
+            objDesdeDb.Cantidad = detalle.Cantidad;
+   
+            //_context.SaveChanges();
 
-        //}
+        }
     }
 }

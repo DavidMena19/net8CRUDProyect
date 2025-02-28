@@ -16,9 +16,11 @@ namespace net8Proyect.Models
         public string ClienteId { get; set; }      
         public int? ArticuloId { get; set; }
         [ForeignKey("ArticuloId")]
-        public Articulo Articulo { get; set; }
+        public Articulo? Articulo { get; set; }
+        public Decimal Precio { get; set; }
+        public int Cantidad { get; set; }
         public List<CarritoDetalle> Detalles { get; set; } = new List<CarritoDetalle>();
-        public Decimal Total => Detalles.Sum(d => d.Subtotal);
+        public Decimal Total => Precio * Cantidad;
 
     }
 }

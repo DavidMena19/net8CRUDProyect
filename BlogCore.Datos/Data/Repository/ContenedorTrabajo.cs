@@ -21,6 +21,7 @@ namespace net8Proyect.Data.Data.Repository
             Slider = new SliderRepository(_context);
             Usuario = new UsuarioRepository(_context);
             Carrito = new CarritoRepository(_context);
+            CarritoDetalle = new CarritoDetalleRepository(_context);
         }
 
         public ICategoriaRepository Categoria {  get; private set; }
@@ -28,8 +29,10 @@ namespace net8Proyect.Data.Data.Repository
         public ISliderRepository Slider { get; private set; }
         public IUsuarioRepository Usuario { get; private set; }
         public ICarritoRepository Carrito { get; private set; }
+        public ICarritoDetalleRepository CarritoDetalle {  get; private set; }
 
-    public void Dispose()
+       
+        public void Dispose()
         {
             _context.Dispose();
         }

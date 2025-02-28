@@ -9,6 +9,9 @@ namespace net8Proyect.Data.Data.Repository.IRepository
 {
     public interface ICarritoDetalleRepository : IRepository<CarritoDetalle>
     {
-        //void Update(CarritoDetalle carritoDetalle);
+        void Update(CarritoDetalle detalle);
+         
+        
+        
     }
 }

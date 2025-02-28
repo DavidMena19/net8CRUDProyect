@@ -17,7 +17,7 @@ function cargarDatatable() {
             {
                 "data": "precio",
                 "render": function (data) {
-                    return `RD$ ${data.toFixed(2)}`; 
+                    return `RD$ ${data.toFixed(2)}`;
                 },
                 "width": "15%"
             },

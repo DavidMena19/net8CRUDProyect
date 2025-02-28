@@ -17,6 +17,12 @@ namespace net8Proyect.Data.Data.Repository
             _context = contex;
         }
 
+        //metodo que cuenta el numero de coincidencias con el usuario
+        public int Count(string usuarioId)
+        {
+            return _context.CarritoDetalle.Count(d => d.UsuarioId == usuarioId);
+        }
+
 
         //public void ObtenerCarritoActual(Carrito carrito)
         //{
@@ -34,5 +40,7 @@ namespace net8Proyect.Data.Data.Repository
             //_context.SaveChanges();
 
         }
+
+       
     }
 }
