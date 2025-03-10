@@ -37,7 +37,7 @@ namespace net8Proyect.Models
         [Required(ErrorMessage = "El precio es obligatorio")]
         public Decimal Precio { get; set; }
 
-        public ICollection<Carrito> Carrito { get; set; }
+        public ICollection<Carrito>? Carrito { get; set; }
 
         //public CarritoDetalle Detalle { get; set; }
 

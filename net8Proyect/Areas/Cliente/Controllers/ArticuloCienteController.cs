@@ -34,26 +34,28 @@ namespace net8Proyect.Areas.Cliente.Controllers
 
         #region Vistas
 
-        public IActionResult Carrito() {
-
+        public IActionResult Carrito()
+        {
             var cuentaUsuario = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            if(cuentaUsuario == null)
+            if (cuentaUsuario == null)
             {
                 return Json(new { success = false, message = "Debe de registrarse para acceder a esta pagina" });
             }
-            var carritoUsuario = _contenedorTrabajo.Carrito.GetFirstOrDefault(u => u.ClienteId == cuentaUsuario, includeProperties:"Detalles");
-            if (carritoUsuario == null /*|| carritoUsuario.Detalles == null || !carritoUsuario.Detalles.Any()*/)
-            {               
-                return View(new List<CarritoDetalle>()); 
+
+            var carritoUsuario = _contenedorTrabajo.Carrito.GetAll(
+                u => u.ClienteId == cuentaUsuario, includeProperties: "Detalles.Articulo").ToList();
+
+            if (carritoUsuario == null)
+            {
+                return View(new CarritoVM { Detalles = new List<CarritoDetalle>() });
             }
-            //var carritoVM = new CarritoVM
-            //{
-            //    Detalles = carritoUsuario.Detalles,
-            //    Total = carritoUsuario.Detalles.Sum(d => d.Cantidad * d.PrecioUnitario)
-            //};
 
-            return View(carritoUsuario);
+            var carritoVM = new CarritoVM
+            {
+                Carritos = carritoUsuario
+            };
 
+            return View(carritoVM);
         }
 
         #endregion
@@ -83,7 +85,8 @@ namespace net8Proyect.Areas.Cliente.Controllers
                 {
                     ClienteId = usuario,
                     Detalles = new List<CarritoDetalle>(),
-                    Cantidad = 0
+                    Cantidad = 0,
+                    
                 };
                 _contenedorTrabajo.Carrito.Add(carrito);
                 _contenedorTrabajo.save(); // Guardamos el carrito para obtener su ID
@@ -100,7 +103,7 @@ namespace net8Proyect.Areas.Cliente.Controllers
             }
             else
             {
-                // Si el artículo no está en el carrito, agregarlo
+                // Si el artículo no está en el Detalle, agregarlo
                 var nuevoDetalle = new CarritoDetalle
                 {
                     ArticuloId = articulo.Id,
@@ -111,11 +114,11 @@ namespace net8Proyect.Areas.Cliente.Controllers
                 };
                 carrito.Cantidad++;
                 carrito.Detalles.Add(nuevoDetalle);
-
                 _contenedorTrabajo.CarritoDetalle.Add(nuevoDetalle);
-                _contenedorTrabajo.Carrito.Update(carrito);
-            }
 
+            }
+            carrito.Total += articulo.Precio;         
+            _contenedorTrabajo.Carrito.Update(carrito);
             _contenedorTrabajo.save();
             return Json(new { success = true, message = "Artículo agregado al carrito" });
         }
@@ -133,11 +136,14 @@ namespace net8Proyect.Areas.Cliente.Controllers
         #endregion
 
         #region Llamadas a la API
+
+        [HttpGet]
+      
         //To Do: no se carga el precio ni la categoria en el datatable
         [HttpGet]
             public IActionResult GetAll()
             {
-                return Json(new { data = _contenedorTrabajo.Carrito.GetAll(includeProperties: "Detalles") });
+                return Json(new { data = _contenedorTrabajo.Carrito.GetAll() });
             }
 
             [HttpDelete]

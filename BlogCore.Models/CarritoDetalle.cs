@@ -28,5 +28,7 @@ namespace net8Proyect.Models
         public Decimal PrecioUnitario { get; set; }
         public int Cantidad { get; set; }
         public Decimal Subtotal => PrecioUnitario * Cantidad;
+
+        public DateTime FechaDeCompra;
     }
 }

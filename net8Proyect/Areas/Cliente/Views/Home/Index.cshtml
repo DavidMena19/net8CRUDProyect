@@ -14,7 +14,7 @@
 @if(Model.ListaArticulos.Count() > 0)
 { 
     <hr />
-    <div class="row" id="tblcarrito">
+    <div class="row" id="tblCarrito">
         @foreach(var articulo in Model.ListaArticulos.OrderBy(i => i.Id))
         {
             
@@ -27,8 +27,6 @@
 
                         <a asp-action="Detalle" class="btn btn-success" style="" asp-route-id="@articulo.Id"><i class="fa-solid fa-circle-info"></i></a>
                         <a href="javascript:void(0);" onclick="agregarAlCarrito(@articulo.Id)" class="btn btn-primary" style=""><i class="fa-solid fa-cart-shopping"></i></a>
-
-                        @* <a asp-action="AgregarAlCarrito" asp-controller="ArticuloCliente" class="btn btn-primary" style="" asp-route-articuloId="@articulo.Id"><i class="fa-solid fa-cart-shopping"></i></a> *@
                     </div>
                 </div>
             </div>

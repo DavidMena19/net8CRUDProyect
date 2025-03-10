@@ -14,6 +14,6 @@ namespace net8Proyect.Models.ViewModels
     public class CarritoVM
     {
         public IEnumerable<CarritoDetalle> Detalles { get; set; }
-        public decimal Total { get; set; }
+        public IEnumerable<Carrito> Carritos { get; set; }
     }
 }

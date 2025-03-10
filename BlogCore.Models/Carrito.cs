@@ -14,13 +14,11 @@ namespace net8Proyect.Models
         public int Id { get; set; }
         //cliente id en string porque el id de los usuarios en identiti es en string no int
         public string ClienteId { get; set; }      
-        public int? ArticuloId { get; set; }
         [ForeignKey("ArticuloId")]
         public Articulo? Articulo { get; set; }
-        public Decimal Precio { get; set; }
         public int Cantidad { get; set; }
         public List<CarritoDetalle> Detalles { get; set; } = new List<CarritoDetalle>();
-        public Decimal Total => Precio * Cantidad;
+        public Decimal Total { get; set; }
 
     }
 }
