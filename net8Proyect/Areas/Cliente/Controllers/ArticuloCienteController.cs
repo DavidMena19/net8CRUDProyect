@@ -143,8 +143,19 @@ namespace net8Proyect.Areas.Cliente.Controllers
         [HttpGet]
             public IActionResult GetAll()
             {
-                return Json(new { data = _contenedorTrabajo.Carrito.GetAll() });
-            }
+            var cuentaUsuario = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var carritoUsuario = _contenedorTrabajo.CarritoDetalle.GetAll()
+                                    .Where(c => c.UsuarioId == cuentaUsuario)
+                                    .Select(c => new
+                                    {
+                                        c.Id,
+                                        c.Nombre,
+                                        c.Cantidad,
+                                        c.PrecioUnitario
+                                    }).ToList();
+
+            return Json(new { data = carritoUsuario });
+        }
 
             [HttpDelete]
             public IActionResult Delete(int id)
